@@ -80,6 +80,7 @@ public class TestScreen1 extends JFrame{
     public TestScreen1(){
         
         this.initializeComponents();
+      //this.setSize(640, 960);
         this.setSize(800, 1000);
         this.setLocationRelativeTo(null);
         this.setTitle("                                                                                                       SHIPS IN SPACE");

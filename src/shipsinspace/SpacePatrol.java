@@ -24,7 +24,7 @@ public class SpacePatrol {
      int maxCrew = 2000;
      int crewDivisor = maxCrew/480;
      int crewBar = crew/crewDivisor;
-     static int gameSpeed = 10; //120 is 10 parsecs per second
+     static int gameSpeed = 120; //120 is 10 parsecs per second
      int shieldRegenerationPower = 0;
      int gameDifficulty = 100;
     public SpacePatrol() {

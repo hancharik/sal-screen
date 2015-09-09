@@ -10,7 +10,7 @@ public class ShipsInSpace {
 
     
     
-    public static int size = 20 ;
+    public static int size = 30 ;
     public static Thing[][] spaceMap = new Thing [size][size];
     public static GalaxyMap gtest = new GalaxyMap();
     public static PlayerShip playerShip = new PlayerShip();
@@ -34,7 +34,7 @@ public class ShipsInSpace {
     public static int move = 1;
     public static int playSpeed = 10;
     public static ScreenTest screenTest;
-    public static int gameAmount = 10;
+    public static int gameAmount = 3;
     
     
     
@@ -64,7 +64,7 @@ public class ShipsInSpace {
       // GalaxyMapUI test = new GalaxyMapUI();
         //SpacePatrol s1 = new SpacePatrol();
         
-        screenTest = new ScreenTest();
+       screenTest = new ScreenTest();
        //game();
         //SpacePatrol game = new SpacePatrol();
     }
