@@ -54,6 +54,7 @@ public class GalaxyMapPanel extends JPanel{
                   galaxyMapButton.setB(j);
                   galaxyMapButton.addActionListener(new GalaxyMapButtonListener());
                   galaxyMapButton.setVisible(true);
+                  galaxyMapButton.setBorderPainted(false);
                   galaxyMapButtonPanel.add(galaxyMapButton);
                   
                   //arrayNumber++;

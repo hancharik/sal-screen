@@ -256,6 +256,7 @@ public class TestScreen1 extends JFrame{
                   galaxyMapButton.setA(i);
                   galaxyMapButton.setB(j);
                   galaxyMapButton.setVisible(true);
+                  galaxyMapButton.setBorderPainted(false);
                   galaxyMapButton.setBackground(ShipsInSpace.gtest.galaxyMap[i][j].color);
                  
                   galaxyMapButtonPanel.add(galaxyMapButton);
@@ -298,6 +299,7 @@ public class TestScreen1 extends JFrame{
                   solarSystemMapButton.setBackground(ss.solarSystemMap[i][j].color);
                   solarSystemMapButton.setA(i);
                   solarSystemMapButton.setB(j);
+                  solarSystemMapButton.setBorderPainted(false);
                   solarSystemMapButton.addActionListener(new TestScreen1.SolarSystemMapButtonListener());
                   //solarSystemMapButton.addActionListener(new SolarSystemMapPanel.SolarSystemMapButtonListener());
                   solarSystemMapButtonPanel.add(solarSystemMapButton);
