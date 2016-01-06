@@ -18,6 +18,9 @@ public class SolarSystem extends Thing{
     ArrayList<SolarSystemObject> solarSystem  = new ArrayList<SolarSystemObject>();
     ArrayList<String> solarSystemNameList  = new ArrayList<String>();
     public SolarSystemObject[][] solarSystemMap;
+    SolarSystemObject[][] ssMap;
+    
+    
     
     public SolarSystem(){
         if (ShipsInSpace.size < 30) {
@@ -61,30 +64,59 @@ public class SolarSystem extends Thing{
     }
     * */
     public void createSolarSystemMap(){
-       SolarSystemObject[][] ssMap = new SolarSystemObject[ShipsInSpace.size][ShipsInSpace.size]; 
+       ssMap = new SolarSystemObject[ShipsInSpace.size][ShipsInSpace.size]; 
         
        for(int i = 0; i < ShipsInSpace.size; i++){
            for(int j = 0; j < ShipsInSpace.size; j++){
-               ssMap[i][j] = new EmptySolarSystemObject();
+              ssMap[i][j] = new EmptySolarSystemObject();
            }
        }
        
+       
+
        //ssMap[ShipsInSpace.size/2][ShipsInSpace.size/2] = solarSystem.get(solarSystem.size()-1);
        for(int i = 0; i < solarSystem.size() - 1; i++){
            
-        Random randX = new Random();
-        int xCord = 1 + randX.nextInt( ShipsInSpace.size - 1 );
-        Random randY = new Random();
-        int yCord = 1 + randY.nextInt( ShipsInSpace.size - 1 );
-        if(xCord!=ShipsInSpace.size/2 && yCord!=ShipsInSpace.size/2){
-        ssMap[xCord][yCord] = solarSystem.get(i);
-        }else{
-          //createSolarSystemMap();  
-        }
-       }
+       insertPlanets(i);
+           
+       }  // end for
+       
+       
+       
        // add sun (last element of array) to center of map
        ssMap[ShipsInSpace.size/2][ShipsInSpace.size/2] = solarSystem.get(solarSystem.size()-1);
         solarSystemMap = ssMap;
-    }
+    } // end create solar system map
     
-}
+    
+    
+    
+    public int randomNumberInRange(){
+        int randomInt = 0;
+        Random randX = new Random();
+        randomInt = 1 + randX.nextInt( ShipsInSpace.size - 1 );
+        return randomInt;
+    } // end random number in range
+    
+    
+    
+   public void insertPlanets(int i){
+        Random randX = new Random();
+        int xCord = randomNumberInRange();//1 + randX.nextInt( ShipsInSpace.size - 1 );
+        Random randY = new Random();
+        int yCord = randomNumberInRange();//1 + randY.nextInt( ShipsInSpace.size - 1 );
+        if(ssMap[xCord][yCord] == null){
+        ssMap[xCord][yCord] = solarSystem.get(i);
+        }else if(xCord!=ShipsInSpace.size/2 && yCord!=ShipsInSpace.size/2){
+        ssMap[xCord][yCord] = solarSystem.get(i);
+        }else{
+            insertPlanets(i);
+           // ssMap[i][j] = new EmptySolarSystemObject();
+          //createSolarSystemMap();  
+        }
+   } // end insert planets
+    
+    
+    
+    
+}  // end

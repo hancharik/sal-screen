@@ -65,7 +65,7 @@ public class GalaxyMapPanel extends JPanel{
         //this.add(bottomButtonPanel);
         this.add(galaxyMapButtonPanel);
         galaxyMapButtonPanel.repaint();
-    }
+    }  // end initialize componenets
     
    public class GalaxyMapButtonListener implements ActionListener{
         public void actionPerformed(ActionEvent evt){
