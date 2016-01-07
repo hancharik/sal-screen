@@ -25,7 +25,7 @@ public class Planet extends SolarSystemObject{
         
         Random rChance = new Random();
         int habitableChance = 1 + rChance.nextInt( 100 );
-        if (habitableChance > 80){
+        if (habitableChance > 60){
             isHabitable = true;
         } else {
             isHabitable = false;
