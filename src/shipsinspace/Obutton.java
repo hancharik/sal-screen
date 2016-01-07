@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 
 
-public class Obutton extends JButton{
+public class Obutton extends RoundButton{
    
    // private int number;
    // private ArrayList<String> solarSystemArray  = new ArrayList<String>();
@@ -38,6 +38,8 @@ public class Obutton extends JButton{
     */
     public Obutton(){
         super();
+        this.setBackground(Color.black);
+        this.setForeground(Color.black);
         this.setVisible(true);
         
     }

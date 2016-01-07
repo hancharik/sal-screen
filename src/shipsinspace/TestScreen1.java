@@ -158,6 +158,8 @@ public class TestScreen1 extends JFrame{
         
         ssMap = createSolarSystemMap(ssTemp);
         gMap = createGalaxyMap();
+        ssMap.setBackground(Color.black);
+        gMap.setBackground(Color.black);
         gMap.setBounds(60, 580, 300, 300);
         ssMap.setBounds(440, 580, 300, 300);
         gMapInfo.setBounds(60, 440, 300, 140);

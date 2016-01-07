@@ -13,7 +13,7 @@ import java.util.Random;
 import javax.swing.*;
 
 
-public class PlanetJButton extends JButton{
+public class PlanetJButton extends RoundButton{
 	
 	
     int move;

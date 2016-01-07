@@ -39,6 +39,8 @@ public class SolarSystemMapPanel extends GalaxyMapPanel{
         
         solarSystemMapButtonPanel = new JPanel(); 
         solarSystemMapButtonPanel.setLayout(new GridLayout(ShipsInSpace.size,ShipsInSpace.size));
+        solarSystemMapButtonPanel.setBackground(Color.black);
+        solarSystemMapButtonPanel.setForeground(Color.black);
         //solarSystemMapButtonPanel.setSize(400, 400);
         
         //controlButtonPanel = new JPanel();
