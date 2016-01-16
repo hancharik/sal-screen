@@ -33,14 +33,16 @@ public class Planet extends SolarSystemObject{
         
         Random rChance = new Random();
         int habitableChance = 1 + rChance.nextInt( 100 );
-        if (habitableChance > 60){
+        if (habitableChance > 50){
             isHabitable = true;
         } else {
             isHabitable = false;
         }
-        // set size between 40-800
+        // set size between 10-70
         Random rSize = new Random();
-        size = 40 + rSize.nextInt( 760 );
+        super.size = 10 + rSize.nextInt( 80 );
+        size = super.size;
+        
         generateResources();
         
         

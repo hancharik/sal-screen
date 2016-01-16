@@ -15,7 +15,7 @@ public abstract class SolarSystemObject {
     String name;
     String icon;
     Color color;
-    
+    int size;
     
    
 }

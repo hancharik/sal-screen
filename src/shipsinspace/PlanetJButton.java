@@ -61,7 +61,7 @@ public class PlanetJButton extends RoundButton{
        if(identifier == 0){
          //setBounds(new Rectangle((buttontest.Main.screen.width/2),(buttontest.Main.screen.height/2),160,160));
          this.move = 0;
-         this.side = 60;
+         this.side = 100;
          setBounds(new Rectangle(210,110,side,side));
          setBackground(Color.yellow);//setBackground(Color.getHSBColor((float)r1, (float)r2, (float)r3));
        }else 

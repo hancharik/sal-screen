@@ -28,6 +28,7 @@ public class SolarSystemJPanel extends JPanel implements ActionListener, KeyList
     int delay = 500;
     int size = 7;
     ArrayList<PlanetJButton> buttonList = new ArrayList<PlanetJButton>();
+    ArrayList<SolarSystemObject> tempList  = new ArrayList<SolarSystemObject>();
     PlanetJButton playerShip;
     SolarSystem thisSolarSystem;
     
@@ -176,14 +177,16 @@ public void keyPressed(KeyEvent e){
     private void colorButtons() {
       
         
-          ArrayList<SolarSystemObject> tempList  = new ArrayList<SolarSystemObject>();
+         
        tempList = thisSolarSystem.solarSystem;
       Collections.reverse(tempList);
         
         
         
-        for(int i = 0; i < thisSolarSystem.solarSystem.size(); i++){
+        for(int i = 1; i < thisSolarSystem.solarSystem.size(); i++){
         buttonList.get(i).setBackground(tempList.get(i).color);//add(new PlanetJButton(i, thisSolarSystem)) ;   
+     
+        buttonList.get(i).side = tempList.get(i).size;
         } 
         
         

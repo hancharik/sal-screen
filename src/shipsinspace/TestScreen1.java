@@ -37,7 +37,7 @@ public class TestScreen1 extends JFrame{
     
     public int mainScreenChoice = 1;
     public JPanel mainScreen = new JPanel(); // this is the bridge main screen
-    public SolarSystem ssTemp = new EmptySolarSystem();
+   public SolarSystem ssTemp = new EmptySolarSystem();
     public SolarSystemJPanel ssPanel = new SolarSystemJPanel( ssTemp);
     public JButton shipLevel = new JButton();
     public JButton crewLevel = new JButton();
@@ -432,7 +432,7 @@ public class TestScreen1 extends JFrame{
           System.out.println("Phosphorous : " + pleaseWork.elements[15]);
           System.out.println("Element ZERO : " + pleaseWork.elements[0]);
           engineeringText.append(pleaseWork.canLiveThere());
-          engineeringText.append("\nPlanet Size: " + sizeToString(pleaseWork.size));
+          engineeringText.append("\nPlanet Size: (" + pleaseWork.size + ")" + sizeToString(pleaseWork.size));
           engineeringText.append("\nGold : " + pleaseWork.elements[79]);
           engineeringText.append("\nIron : " + pleaseWork.elements[26]);
           engineeringText.append("\nPhosphorous : " + pleaseWork.elements[15]);
@@ -442,7 +442,7 @@ public class TestScreen1 extends JFrame{
           //refreshMainPanel(); 
           for(int i = 0; i < ss.solarSystem.size(); i++){
               if(ssPanel.buttonList.get(i).getBackground().equals(Color.red)){
-               ssPanel.buttonList.get(i).setBackground(Color.gray);   
+               ssPanel.buttonList.get(i).setBackground(ssPanel.tempList.get(i).color);   
               }
           }
           ssPanel.buttonList.get(pleaseWork.number).setBackground(Color.red);
@@ -514,9 +514,9 @@ public class TestScreen1 extends JFrame{
     public String sizeToString(int size){
         String planetSize = "";
         
-        if(size > 600){
+        if(size > 50){
           planetSize = "Large";  
-        }else if(size > 400){
+        }else if(size > 20){
           planetSize = "Medium";  
         }else{
           planetSize = "Small";   
