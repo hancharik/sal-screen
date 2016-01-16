@@ -432,7 +432,7 @@ public class TestScreen1 extends JFrame{
           System.out.println("Phosphorous : " + pleaseWork.elements[15]);
           System.out.println("Element ZERO : " + pleaseWork.elements[0]);
           engineeringText.append(pleaseWork.canLiveThere());
-          engineeringText.append("\nPlanet Size: (" + pleaseWork.size + ")" + sizeToString(pleaseWork.size));
+          engineeringText.append("\nPlanet Size: " + sizeToString(pleaseWork.size));
           engineeringText.append("\nGold : " + pleaseWork.elements[79]);
           engineeringText.append("\nIron : " + pleaseWork.elements[26]);
           engineeringText.append("\nPhosphorous : " + pleaseWork.elements[15]);
