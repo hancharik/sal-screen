@@ -17,8 +17,16 @@ public class Planet extends SolarSystemObject{
     int number;
     int[] elements = new int[120];
     
+    int red;
+    int green;
+    int blue;
+    
+    
+    
+    
+    
     public Planet(String sunName, int n){
-        super.color = Color.LIGHT_GRAY;
+        super.color = makeColor();
         this.number = n;
         super.name = sunName + " " + number;
         super.icon = "P";
@@ -81,6 +89,17 @@ public class Planet extends SolarSystemObject{
             
         }
         
-    }
+    } // end generate resources
     
-}
+    private Color makeColor(){
+        
+                        int red = (int) (Math.random( )*256);
+                        int green = (int)(Math.random( )*256);
+                        int blue = (int)(Math.random( )*256);
+                        
+                        Color randomColor = new Color(red, green, blue);
+                        
+            return randomColor;            
+    } // end make color
+    
+} // end 

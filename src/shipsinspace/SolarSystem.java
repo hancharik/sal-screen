@@ -33,9 +33,15 @@ public class SolarSystem extends Thing{
         
         
         Random rand = new Random();
-        int objects = 1 + rand.nextInt( 10 );
+        int objects = 1 + rand.nextInt( 10 );   // i think setting this to ten allows for a sun with no planets. pretty certain that's correct
         
         
+        
+        
+        
+        
+        
+        // this is just a switch statement with no break statements, so
         
         switch(objects){
             case 1 : Planet planet9 = new Planet(sun.name,9); solarSystem.add(planet9); solarSystemNameList.add(planet9.name);

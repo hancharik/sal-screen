@@ -9,6 +9,8 @@ package shipsinspace;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import javax.swing.*;
 
@@ -28,12 +30,13 @@ public class PlanetJButton extends RoundButton{
     int yCord = 1 + randomNumber.nextInt( 280 );
     int bounds = side;
     int orbitSize;
+    SolarSystem parentSolarSystem;
     
-   public PlanetJButton(int identifier){
-       
+   public PlanetJButton( int identifier, SolarSystem solaSystem){
+   // public PlanetJButton( int solaSystem){    
        super();
-       
-       name = identifier;
+        parentSolarSystem = solaSystem;
+      // name = identifier;
        
        //this.setText(""+name);
        
@@ -44,7 +47,16 @@ public class PlanetJButton extends RoundButton{
                randomNumber = new Random();
                int r3 = 1 + randomNumber.nextInt( 255 );
        
-      
+       if(identifier == 11){
+           setBounds(new Rectangle(10, 10, 20, 20));
+           setBackground(Color.white);
+       }else
+         if(solaSystem.solarSystem.get(identifier).name.equals("empty space")){
+          this.move = 0;
+         this.side = 60;
+         setBounds(new Rectangle(210,110,side,side));
+         setBackground(Color.green);//setBackground(Color.getHSBColor((float)r1, (float)r2, (float)r3));
+         } else     
        
        if(identifier == 0){
          //setBounds(new Rectangle((buttontest.Main.screen.width/2),(buttontest.Main.screen.height/2),160,160));
@@ -52,23 +64,33 @@ public class PlanetJButton extends RoundButton{
          this.side = 60;
          setBounds(new Rectangle(210,110,side,side));
          setBackground(Color.yellow);//setBackground(Color.getHSBColor((float)r1, (float)r2, (float)r3));
-       }else{
+       }else 
+       {
        this.move = 1 + randomNumber.nextInt( 3 );
        setBounds(new Rectangle(xCord,yCord,side,side));
-       setBackground(Color.getHSBColor((float)r1, (float)r2, (float)r3));
+       
+       setBackground(setBackGround(identifier));
+       //setBackground(solaSystem.solarSystem.get(identifier).color);
+       //setBackground(Color.getHSBColor((float)r1, (float)r2, (float)r3));
        this.orbitSize = 10 + randomNumber.nextInt( 140 );
        }	
-       if(identifier == 11){
-           setBounds(new Rectangle(10, 10, 20, 20));
-           setBackground(Color.white);
-       }
+     
        
       System.out.println("Planet " + identifier + ":  r1: " +(float)r1 + "   r2: " +r2 + "   r3: " + r3); 
                
-               
+           
        
-   } 
-    
+   } // end constructor
+  
+   public Color setBackGround(int i){
+       
+       ArrayList<SolarSystemObject> tempList  = new ArrayList<SolarSystemObject>();
+       tempList = parentSolarSystem.solarSystem;
+      //Collections.reverse(tempList);
+       Color tempColor = tempList.get(i).color;
+       return tempColor;
+   }
+   
    public void moveButton(){
        
             int newX = this.getX();

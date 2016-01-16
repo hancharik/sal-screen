@@ -19,6 +19,7 @@ import javax.swing.*;
 import java.awt.event.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class SolarSystemJPanel extends JPanel implements ActionListener, KeyListener{
@@ -28,7 +29,7 @@ public class SolarSystemJPanel extends JPanel implements ActionListener, KeyList
     int size = 7;
     ArrayList<PlanetJButton> buttonList = new ArrayList<PlanetJButton>();
     PlanetJButton playerShip;
-    
+    SolarSystem thisSolarSystem;
     
     /*
     
@@ -40,34 +41,19 @@ public class SolarSystemJPanel extends JPanel implements ActionListener, KeyList
     PlanetJButton b6 = new PlanetJButton(6);
     */
     
-   public SolarSystemJPanel(int planetNumber){
+   public SolarSystemJPanel(SolarSystem tss){
        
        super();
-       this.size = planetNumber;
-       setLayout(null);
-       setBackground(Color.black);
-      /* add(b1);
-       add(b2);
-       add(b3);
-       add(b4);
-       add(b5);
-       add(b6);
-       */
-       playerShip = new PlanetJButton(11);
-       playerShip.addActionListener(this);
-       playerShip.addKeyListener(this);
-       this.add(playerShip);
+    
+       thisSolarSystem = tss;
+       
+        for(int i = 0; i < thisSolarSystem.solarSystem.size(); i++){
+        buttonList.add(new PlanetJButton(i, thisSolarSystem)) ;   
+        }
+       
+       initializeComponents();
        
        
-       for(int i = 0; i < size; i++){
-        buttonList.add(new PlanetJButton(i)) ;   
-       }
-       
-       
-       for(int i = buttonList.size() - 1; i >= 0; i--){
-    	   
-    	   this.add(buttonList.get(i));
-       }
        setFocusable(true);
 		//addKeyListener((KeyListener) this);
        //b1.addActionListener(this);
@@ -77,7 +63,7 @@ public class SolarSystemJPanel extends JPanel implements ActionListener, KeyList
        //repaint();
        this.requestFocusInWindow();
        playerShip.requestFocusInWindow();
-   } 
+   } // end constructor
     
     public void actionPerformed(ActionEvent event) 
     {
@@ -133,14 +119,75 @@ public void keyPressed(KeyEvent e){
 
     @Override
     public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+       // throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet.");
+      //  throw new UnsupportedOperationException("Not supported yet.");
     }
    
+   public void createEmptySpace(){
+       for(int i = 0; i < buttonList.size()-1; i++){
+         buttonList.clear();
+         initializeComponents();
+       }
+   }
+
+    private void initializeComponents() {
+               this.size = thisSolarSystem.solarSystem.size();
+       setLayout(null);
+       setBackground(Color.black);
+      /* add(b1);
+       add(b2);
+       add(b3);
+       add(b4);
+       add(b5);
+       add(b6);
+       */
+       playerShip = new PlanetJButton(11, thisSolarSystem);
+       playerShip.addActionListener(this);
+       playerShip.addKeyListener(this);
+       this.add(playerShip);
+       
+       
+      
+       
+       colorButtons();
+       
+       
+       
+       
+       for(int i = 0; i <  buttonList.size(); i++){
+    	// for(int i = buttonList.size() - 1; i >= 0; i--){   
+           System.out.println("ssjpanel line 69: " + i);
+    	   this.add(buttonList.get(i));
+       }
+       /*
+         for(int i = buttonList.size() - 1; i >= 0; i--){
+    	// for(int i = buttonList.size() - 1; i >= 0; i--){   
+           System.out.println("ssjpanel line 69" + i);
+    	   this.add(buttonList.get(i));
+       }
+        */ 
+     
+    } // end init components
+
+    private void colorButtons() {
+      
+        
+          ArrayList<SolarSystemObject> tempList  = new ArrayList<SolarSystemObject>();
+       tempList = thisSolarSystem.solarSystem;
+      Collections.reverse(tempList);
+        
+        
+        
+        for(int i = 0; i < thisSolarSystem.solarSystem.size(); i++){
+        buttonList.get(i).setBackground(tempList.get(i).color);//add(new PlanetJButton(i, thisSolarSystem)) ;   
+        } 
+        
+        
+        
+    } // end color buttons
    
-   
-}
+} // end

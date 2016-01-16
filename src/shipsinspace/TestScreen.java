@@ -29,12 +29,12 @@ public class TestScreen extends JFrame{
     public GalaxyMapPanel galMapPanel;
     public SolarSystemMapPanel ssMapPanel;
     public int ssAmount = 0;
-    public SolarSystemJPanel ssPanel = new SolarSystemJPanel(ssAmount);
+  
     
     public int mainScreenChoice = 1;
     public JPanel mainScreen = new JPanel(); // this is the bridge main screen
     public SolarSystem ssTemp = ShipsInSpace.gtest.galaxyMap[4][3];
-    
+      public SolarSystemJPanel ssPanel = new SolarSystemJPanel(ssTemp);
     public JButton shipLevel = new JButton();
     public JButton crewLevel = new JButton();
     
@@ -346,7 +346,7 @@ public class TestScreen extends JFrame{
            //ssMap.repaint();
            //mainPanel.repaint();
            //}
-          ssPanel = new SolarSystemJPanel(ShipsInSpace.gtest.galaxyMap[thisButton.getA()][thisButton.getB()].solarSystemNameList.size());
+          ssPanel = new SolarSystemJPanel(ShipsInSpace.gtest.galaxyMap[thisButton.getA()][thisButton.getB()]);
           //mainScreenText.setVisible(false);
           ssAmount = ShipsInSpace.gtest.galaxyMap[thisButton.getA()][thisButton.getB()].solarSystemNameList.size();
           mainScreenChoice = 1;

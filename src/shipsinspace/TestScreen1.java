@@ -33,12 +33,12 @@ public class TestScreen1 extends JFrame{
     public GalaxyMapPanel galMapPanel;
     public SolarSystemMapPanel ssMapPanel;
     public int ssAmount = 0;
-    public SolarSystemJPanel ssPanel = new SolarSystemJPanel(ssAmount);
+    
     
     public int mainScreenChoice = 1;
     public JPanel mainScreen = new JPanel(); // this is the bridge main screen
-    public SolarSystem ssTemp = ShipsInSpace.gtest.galaxyMap[4][3];
-    
+    public SolarSystem ssTemp = new EmptySolarSystem();
+    public SolarSystemJPanel ssPanel = new SolarSystemJPanel( ssTemp);
     public JButton shipLevel = new JButton();
     public JButton crewLevel = new JButton();
     
@@ -83,7 +83,7 @@ public class TestScreen1 extends JFrame{
     
     public TestScreen1(){
         
-        this.initializeComponents();
+        this.refreshMainPanel();
       //this.setSize(640, 960);
         this.setSize(800, 1000);
         this.setLocationRelativeTo(null);
@@ -93,7 +93,7 @@ public class TestScreen1 extends JFrame{
         
     }
     
-    public void initializeComponents(){
+    public void refreshMainPanel(){
         
         mainPanel.removeAll();
         mainPanel = new JPanel();
@@ -334,6 +334,12 @@ public class TestScreen1 extends JFrame{
           
            Obutton thisButton = (Obutton) evt.getSource();
            
+           if(ShipsInSpace.gtest.galaxyMap[thisButton.getA()][thisButton.getB()].SolarSystemName.toString().equals("Empty Space")){
+               emptySpaceEvent();
+               
+           } else{
+           
+          
            Random random = new Random();
            int randomNumber = 1 + random.nextInt( ShipsInSpace.size - 1 );
            //System.out.println(ShipsInSpace.gtest.galaxyMap[thisButton.getX()][thisButton.getY()].SolarSystemName);
@@ -361,7 +367,14 @@ public class TestScreen1 extends JFrame{
            //ssMap.repaint();
            //mainPanel.repaint();
            //}
-          ssPanel = new SolarSystemJPanel(ShipsInSpace.gtest.galaxyMap[thisButton.getA()][thisButton.getB()].solarSystemNameList.size());
+          
+          
+          // this needs to take the colors from
+          ssPanel = new SolarSystemJPanel(ShipsInSpace.gtest.galaxyMap[thisButton.getA()][thisButton.getB()]);
+          
+          
+          
+          
           //mainScreenText.setVisible(false);
           ssAmount = ShipsInSpace.gtest.galaxyMap[thisButton.getA()][thisButton.getB()].solarSystemNameList.size();
           mainScreenChoice = 1;
@@ -370,10 +383,34 @@ public class TestScreen1 extends JFrame{
           engineeringText.setText(null);
            engineeringText.append("              " + ShipsInSpace.gtest.galaxyMap[thisButton.getA()][thisButton.getB()].SolarSystemName);
            ssTemp = ShipsInSpace.gtest.galaxyMap[thisButton.getA()][thisButton.getB()];
-          initializeComponents(); 
+          refreshMainPanel(); 
           ssPanel.playerShip.requestFocusInWindow();
-        }
+           thisButton.setBackground(Color.red);
+        }  // end event
     }
+        
+        
+        
+        // netbeans auto-inserted this here, a method within a method. interesting...
+        private void emptySpaceEvent() {
+            
+            
+            ssTemp = new EmptySolarSystem();
+           // ssPanel.createEmptySpace();
+           System.out.println("testscreen1.java line 391   empty space event method triggered");
+           engineeringText.setText(null);
+           engineeringText.append("empty space method");
+            helmsmanText.setText(null);
+           helmsmanText.append("empty space method");
+        
+           //refreshMainPanel(); 
+        //  ssPanel.playerShip.requestFocusInWindow();
+           
+           
+           
+           
+        } // end empty space event
+    } // end action listener
     
     
     public class SolarSystemMapButtonListener implements ActionListener{
@@ -402,7 +439,7 @@ public class TestScreen1 extends JFrame{
           engineeringText.append("\nElement ZERO : " + pleaseWork.elements[0]);
           //mainScreenText.setVisible(false)
           //ss.solarSystem.size()
-          //initializeComponents(); 
+          //refreshMainPanel(); 
           for(int i = 0; i < ss.solarSystem.size(); i++){
               if(ssPanel.buttonList.get(i).getBackground().equals(Color.red)){
                ssPanel.buttonList.get(i).setBackground(Color.gray);   
