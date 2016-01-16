@@ -10,7 +10,7 @@ public class ShipsInSpace {
 
     
     
-    public static int size = 42 ;
+    public static int size = 21 ;
     public static Thing[][] spaceMap = new Thing [size][size];
     public static GalaxyMap gtest = new GalaxyMap();
     public static PlayerShip playerShip = new PlayerShip();
