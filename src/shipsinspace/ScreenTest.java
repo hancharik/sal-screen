@@ -25,7 +25,7 @@ public class ScreenTest {
      //SolarSystemMapUI ssMap = new SolarSystemMapUI();
      
     test1 =  new TestScreen1();
-     game = new SpacePatrol();
+    // game = new SpacePatrol();
     }
     
 }

@@ -5,6 +5,7 @@ package shipsinspace;
 
 import java.awt.*;
 import java.awt.geom.*;
+import java.awt.image.BufferedImage;
 import javax.swing.*;
 
 public class RoundButton extends JButton {
@@ -33,12 +34,16 @@ public class RoundButton extends JButton {
 
 // Paint the round background and label.
   protected void paintComponent(Graphics g) {
+      BufferedImage bufferedImage = new BufferedImage(400, 400, BufferedImage.TYPE_INT_RGB);
+        Graphics2D g2 = (Graphics2D)bufferedImage.getGraphics();
     if (getModel().isArmed()) {
 // You might want to make the highlight color 
    // a property of the RoundButton class.
       g.setColor(Color.lightGray);
+      g2.setRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON ));
     } else {
       g.setColor(getBackground());
+      g2.setRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON ));
     }
     g.fillOval(0, 0, getSize().width-1, 
       getSize().height-1);

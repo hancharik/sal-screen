@@ -16,7 +16,7 @@ public class Sun extends SolarSystemObject{
     public Sun(){
        super.name = getName(); 
        super.icon = "S";
-       super.color = Color.WHITE;
+       super.color = Color.YELLOW;
     }
     
     

@@ -5,9 +5,13 @@
 package shipsinspace;
 
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
+import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -111,7 +115,13 @@ public class TestScreen1 extends JFrame{
     
     public void createMainPanel(){
         
+          BufferedImage bufferedImage = new BufferedImage(400, 400, BufferedImage.TYPE_INT_RGB);
+        Graphics2D g2 = (Graphics2D)bufferedImage.getGraphics();
+        //g2.setRenderingHints(rh);
+      
         
+    
+           g2.setRenderingHints(new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON ));
         
         
         mainPanel.setLayout(null);
@@ -219,7 +229,7 @@ public class TestScreen1 extends JFrame{
     
     
     
-    
+
     
     
     
