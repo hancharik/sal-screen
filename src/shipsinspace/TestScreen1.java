@@ -84,8 +84,8 @@ public class TestScreen1 extends JFrame{
     public TestScreen1(){
         
         this.refreshMainPanel();
-      //this.setSize(640, 960);
-        this.setSize(800, 1000);
+      //this.setSize(640, 960);  this.setSize(800, 1000);
+        this.setSize(1920,1080);
         this.setLocationRelativeTo(null);
         this.setTitle("                                                                                                       SHIPS IN SPACE");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -125,7 +125,7 @@ public class TestScreen1 extends JFrame{
         
         
         mainPanel.setLayout(null);
-        
+        mainPanel.setBackground(Color.BLUE);
         
         sideButton1.setBounds(40, 30, 60, 60);
         sideButton2.setBounds(40, 144, 60, 60);
